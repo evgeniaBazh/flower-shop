@@ -4,21 +4,24 @@ import heart from '../../assets/heart.svg'
 import cart from '../../assets/cart.svg'
 import search from '../../assets/search.svg'
 import classes from '../header/Header.module.scss'
+import {NavLink} from "react-router-dom"
+import { pathNames } from '../../App'
 
 function Header() {
     const menu = [
-        { id: 1, title: "Каталог" },
-        { id: 2, title: "Подобрать" },
-        { id: 3, title: "Доставка" },
-        { id: 4, title: "Отзывы" },
-        { id: 5, title: "Контакты" },
+        { id: 1, title: "Каталог", path: pathNames.catalog },
+        { id: 2, title: "Подобрать", path: pathNames.filter },
+        { id: 3, title: "Доставка", path: pathNames.delivery },
+        { id: 4, title: "Отзывы", path: pathNames.feedback },
       ];
     
     return ( 
         <header className={classes.header}>
-            <img className={classes.logo} src={logo} alt="Логотип" />
+            <NavLink to={pathNames.main}>
+                <img className={classes.logo} src={logo} alt="Логотип" />
+            </NavLink>
             <nav>
-                {menu.map(({id, title}) => <a style={{marginRight:'16px'}} className={classes.action} href="#" key={id}>{title}</a>)}
+                {menu.map(({id, title, path}) => <NavLink to={path} style={{marginRight:'16px'}} className={classes.action} key={id}>{title}</NavLink>)}
             </nav>
             <div className={classes.connection}>
                 <a href="#" className={classes.action}>
@@ -26,15 +29,17 @@ function Header() {
                 </a>
             </div>
             <div className={classes.actions}>
+                <NavLink to={pathNames.search}>
                 <button className={classes.action}>
                     <img className={classes.img} src={search} alt="Поиск по сайту" />
                 </button>
-                <a href="#">
+                </NavLink>
+                <NavLink to={pathNames.favourites}>
                     <img className={classes.img} src={heart} alt="Понравившиеся товары" />
-                </a>
-                <a href="#">
+                </NavLink>
+                <NavLink to={pathNames.cart}>
                     <img className={classes.img} src={cart} alt="Корзина с товарами" />
-                </a>
+                </NavLink>
             </div>
         </header>
      );
