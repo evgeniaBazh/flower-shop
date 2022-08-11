@@ -48,3 +48,14 @@
   margin-right: 16px;
   width: 16px;
 }
+
+.search {
+  position: relative;
+}
+
+.inputSearch {
+  display: none;
+  position: absolute;
+  top: 72px;
+  right: 42px;
+}

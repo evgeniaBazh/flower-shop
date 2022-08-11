@@ -6,6 +6,7 @@ import search from '../../assets/search.svg'
 import classes from '../header/Header.module.scss'
 import {NavLink} from "react-router-dom"
 import { pathNames } from '../../App'
+import { useState } from 'react'
 
 function Header() {
     const menu = [
@@ -14,6 +15,8 @@ function Header() {
         { id: 3, title: "Доставка", path: pathNames.delivery },
         { id: 4, title: "Отзывы", path: pathNames.feedback },
       ];
+
+    const [onSearchBtn, setOnSearchBtn] = useState(false);
     
     return ( 
         <header className={classes.header}>
@@ -30,10 +33,11 @@ function Header() {
             </div>
             <div className={classes.actions}>
                 <NavLink to={pathNames.search}>
-                <button className={classes.action}>
+                <button onClick={() => setOnSearchBtn((item) => !item)} className={classes.action}>
                     <img className={classes.img} src={search} alt="Поиск по сайту" />
                 </button>
                 </NavLink>
+                <input style={{ display: onSearchBtn ? "block" : "none" }} className={classes.inputSearch} placeholder='Поиск...' type="text" />
                 <NavLink to={pathNames.favourites}>
                     <img className={classes.img} src={heart} alt="Понравившиеся товары" />
                 </NavLink>
