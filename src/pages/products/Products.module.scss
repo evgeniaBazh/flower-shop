@@ -1,0 +1,104 @@
+.block {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.block > select:nth-child(1) {
+  grid-column: 4/5;
+}
+
+.product {
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  text-decoration: none;
+  padding: 20px;
+
+  &:hover {
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+    border-radius: 25px;
+  }
+}
+
+.product .btnLike,
+.product .btnAdd {
+  opacity: 0;
+}
+
+.product:hover .btnLike,
+.product:hover .btnAdd {
+  opacity: 1;
+  transition: 0.1ms;
+}
+
+.select {
+  padding: 10px 16px;
+  border: 1px solid rgba(221, 221, 221, 1);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.scale {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+}
+
+.img {
+  width: 260px;
+  height: 280px;
+  object-fit: cover;
+  transition: 1s;
+  display: block;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.btnLike {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-365%, -400%);
+  color: #ffffff;
+  font-size: 16px;
+  background-color: #ffffff;
+  padding: 6px;
+  border: 1px solid rgba(221, 221, 221, 1);
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+
+  &:hover {
+    background-color: rgb(85, 120, 218);
+    border: 1px solid rgb(85, 120, 218);
+  }
+}
+
+.btnAdd {
+  position: absolute;
+  top: 50%;
+  left: 42%;
+  transform: translate(-35%, 160%);
+  color: #ffffff;
+  font-size: 16px;
+  background-color: rgb(85, 120, 218);
+  padding: 12px 24px;
+  border: 1px solid rgb(85, 120, 218);
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+
+  &:hover {
+    color: rgb(85, 120, 218);
+    background-color: #ffffff;
+  }
+}
+
+.decor {
+  width: 18px;
+  height: 18px;
+}

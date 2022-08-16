@@ -19,33 +19,38 @@ function Header() {
     const [onSearchBtn, setOnSearchBtn] = useState(false);
     
     return ( 
+        
         <header className={classes.header}>
-            <NavLink to={pathNames.main}>
-                <img className={classes.logo} src={logo} alt="Логотип" />
-            </NavLink>
-            <nav>
-                {menu.map(({id, title, path}) => <NavLink to={path} style={{marginRight:'16px'}} className={classes.action} key={id}>{title}</NavLink>)}
-            </nav>
-            <div className={classes.connection}>
-                <a href="#" className={classes.action}>
-                    <img className={classes.imgCall} src={telephone} alt="Позвонить" />8 999 999 99 99
-                </a>
-            </div>
-            <div className={classes.actions}>
-                <NavLink to={pathNames.search}>
-                <button onClick={() => setOnSearchBtn((item) => !item)} className={classes.action}>
-                    <img className={classes.img} src={search} alt="Поиск по сайту" />
-                </button>
-                </NavLink>
-                <input style={{ display: onSearchBtn ? "block" : "none" }} className={classes.inputSearch} placeholder='Поиск...' type="text" />
-                <NavLink to={pathNames.favourites}>
-                    <img className={classes.img} src={heart} alt="Понравившиеся товары" />
-                </NavLink>
-                <NavLink to={pathNames.cart}>
-                    <img className={classes.img} src={cart} alt="Корзина с товарами" />
-                </NavLink>
-            </div>
-        </header>
+                        <div className="wrapper styles">
+
+                            <NavLink to={pathNames.main}>
+                                <img className={classes.logo} src={logo} alt="Логотип" />
+                            </NavLink>
+                            <nav>
+                                {menu.map(({id, title, path}) => <NavLink to={path} style={{marginRight:'16px'}} className={classes.action} key={id}>{title}</NavLink>)}
+                            </nav>
+                            <div className={classes.connection}>
+                                <a href="#" className={classes.action}>
+                                    <img className={classes.imgCall} src={telephone} alt="Позвонить" />8 999 999 99 99
+                                </a>
+                            </div>
+                            <div className={classes.actions}>
+                                <NavLink to={pathNames.search}>
+                                <button onClick={() => setOnSearchBtn((item) => !item)} className={classes.action}>
+                                    <img className={classes.img} src={search} alt="Поиск по сайту" />
+                                </button>
+                                </NavLink>
+                                <input style={{ display: onSearchBtn ? "block" : "none" }} className={classes.inputSearch} placeholder='Поиск...' type="text" />
+                                <NavLink to={pathNames.favourites}>
+                                    <img className={classes.img} src={heart} alt="Понравившиеся товары" />
+                                </NavLink>
+                                <NavLink to={pathNames.cart}>
+                                    <img className={classes.img} src={cart} alt="Корзина с товарами" />
+                                </NavLink>
+                            </div>
+    </div>
+                    </header>
+       
      );
 }
 
