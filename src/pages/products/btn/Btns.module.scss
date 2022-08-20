@@ -1,0 +1,41 @@
+.btnLike {
+  color: #ffffff;
+  font-size: 16px;
+  background-color: #ffffff;
+  padding: 6px;
+  border: 1px solid rgba(221, 221, 221, 1);
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  max-width: 40px;
+  max-height: 40px;
+  align-items: center;
+
+  &:hover {
+    background-color: rgb(85, 120, 218);
+    border: 1px solid rgb(85, 120, 218);
+  }
+}
+
+.btnAdd {
+  color: #ffffff;
+  font-size: 16px;
+  background-color: rgb(85, 120, 218);
+  padding: 6px 18px;
+  border: 1px solid rgb(85, 120, 218);
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  max-width: 158px;
+  min-height: 56px;
+
+  &:hover {
+    color: rgb(85, 120, 218);
+    background-color: #ffffff;
+  }
+}
+
+.decor {
+  width: 26px;
+}

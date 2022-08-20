@@ -21,16 +21,31 @@
     border-radius: 25px;
   }
 }
+.product .btnLike {
+  margin-top: -60px;
+}
+
+.product .btnAdd {
+  margin-top: 80px;
+}
 
 .product .btnLike,
 .product .btnAdd {
+  transition: 0.3s;
   opacity: 0;
 }
 
 .product:hover .btnLike,
 .product:hover .btnAdd {
   opacity: 1;
-  transition: 0.1ms;
+}
+
+.product:hover .btnLike {
+  margin-top: 0;
+}
+
+.product:hover .btnAdd {
+  margin-top: 0;
 }
 
 .select {
@@ -60,42 +75,16 @@
 
 .btnLike {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 60%;
+  left: 60%;
   transform: translate(-365%, -400%);
-  color: #ffffff;
-  font-size: 16px;
-  background-color: #ffffff;
-  padding: 6px;
-  border: 1px solid rgba(221, 221, 221, 1);
-  cursor: pointer;
-  border-radius: 50%;
-  display: flex;
-
-  &:hover {
-    background-color: rgb(85, 120, 218);
-    border: 1px solid rgb(85, 120, 218);
-  }
 }
 
 .btnAdd {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 42%;
   transform: translate(-35%, 160%);
-  color: #ffffff;
-  font-size: 16px;
-  background-color: rgb(85, 120, 218);
-  padding: 12px 24px;
-  border: 1px solid rgb(85, 120, 218);
-  cursor: pointer;
-  border-radius: 5px;
-  display: flex;
-
-  &:hover {
-    color: rgb(85, 120, 218);
-    background-color: #ffffff;
-  }
 }
 
 .decor {

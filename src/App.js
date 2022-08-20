@@ -9,7 +9,8 @@ import Feedback from "./pages/feedback/Feedback";
 import Favourites from "./pages/favourites/Favourites";
 import Search from "./pages/search/Search";
 import Main from "./pages/main/Main";
-import Products from "./pages/products/Products";
+import Product from "./pages/product/Product";
+import Category from "./pages/products/Category";
 
 export const pathNames = {
   cart: "/cart",
@@ -20,7 +21,8 @@ export const pathNames = {
   favourites: "/favourites",
   search: "/search",
   main: "/",
-  products: "/products",
+  product: "/product",
+  category: "/category",
 };
 
 function App() {
@@ -33,7 +35,8 @@ function App() {
     { path: pathNames.favourites, el: <Favourites /> },
     { path: pathNames.search, el: <Search /> },
     { path: pathNames.main, el: <Main /> },
-    { path: pathNames.products, el: <Products /> },
+    { path: pathNames.product, el: <Product /> },
+    { path: pathNames.category, el: <Category /> },
   ];
   return (
     <BrowserRouter>
