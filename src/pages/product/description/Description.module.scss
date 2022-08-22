@@ -1,0 +1,21 @@
+.container {
+  margin-top: 60px;
+  margin-bottom: 80px;
+}
+
+.title {
+  border-bottom: 1px solid rgb(221, 221, 221);
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  &__text {
+    border-bottom: 2px solid rgb(85, 120, 218);
+    margin: 0;
+    width: 110px;
+  }
+}
+
+p {
+  font-size: 20px;
+  text-align: justify;
+}

@@ -6,6 +6,7 @@ import classes from '../product/Product.module.scss'
 import BtnAddProduct from '../products/btn/BtnAddProduct';
 import BtnLike from '../products/btn/BtnLike';
 import InputNumber from './btn/input/InputNumber';
+import Description from './description/Description';
 
 function Product(props) {
     const {id} = useParams();
@@ -18,18 +19,18 @@ function Product(props) {
             return (
             <div className="wrapper">
                 <div className={classes.block}>
-                    <img src={product.img} alt="" />
+                    <img className={classes.img} src={product.img} alt="" />
                     <div className={classes.info}>
-                        <h1>{product.title}</h1>
-                        {/* <p></p> */}
+                        <h1 className={classes.title}>{product.title}</h1>
+                        <p className={classes.cost}>{product.cost}</p>
                         <div className={classes.blockBtn}>
                             <InputNumber/>
                             <BtnAddProduct  />
                             <BtnLike/>
                         </div>
-                        <p>{product.cost}</p>
                     </div>
                 </div>
+                <Description/>
             </div>
             )
         } else {
