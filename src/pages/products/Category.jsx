@@ -3,8 +3,9 @@ import classes from '../products/Category.module.scss'
 import {getProductsByCategory} from '../../services/api.service'
 import BtnLike from './btn/BtnLike';
 import BtnAddProduct from './btn/BtnAddProduct';
-import {useLocation, useSearchParams} from "react-router-dom";
+import { NavLink, useSearchParams} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
+import { pathNames } from '../../App';
 
 export const colors = {
     white: '#ffffff',
@@ -16,6 +17,7 @@ export const colors = {
 function Category(props) {
     const [products, setProducts]= useState([]);
     const [title, setTitle] = useState('')
+    // const [productId, setProductId] = useState([])
 
     const sortValue = [{title: 'Цены: по возрастанию'},
     {title: 'Цены: убыванию'},
@@ -47,6 +49,7 @@ function Category(props) {
                             ))}
                     </select>
                     {products.map(product => (
+                           
                         <div onClick={() => {toProduct(product.id)}} key={product.id} className={classes.product}>
                             <div className={classes.scale}>  
                                 <img className={classes.img} src={product.img} alt="Фотография букета" />
@@ -56,6 +59,7 @@ function Category(props) {
                             <p><strong>{product.title}</strong></p>
                             <p>{product.cost}</p>
                         </div>
+                        
                     ))}
                 </div>
             </div>

@@ -21,7 +21,7 @@ export const pathNames = {
   favourites: "/favourites",
   search: "/search",
   main: "/",
-  product: "/product",
+  product: "/product/:id",
   category: "/category",
 };
 
