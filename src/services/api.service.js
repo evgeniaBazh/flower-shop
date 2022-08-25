@@ -59,10 +59,12 @@ export const getProductById = (id) => {
     { id: 4, img: flow4, title: "Закат", cost: 2090 },
     { id: 5, img: flow5, title: "Счастье", cost: 3890 },
     { id: 6, img: flow6, title: "Воспоминания о лете", cost: 1990 },
-    { id: 11, img: flow1, title: "Романтика сердца", cost: 1890 },
-    { id: 22, img: flow2, title: "Вишнёвый сад", cost: 2890 },
-    { id: 33, img: flow3, title: "Милашка", cost: 1590 },
-    { id: 111, img: flow1, title: "Романтика сердца", cost: 1890 },
+    { id: 11, img: monoflow1, title: "Пушистое облако", cost: 2000 },
+    { id: 22, img: monoflow2, title: "Первая нежность", cost: 2890 },
+    { id: 33, img: monoflow3, title: "Яркий день", cost: 4590 },
+    { id: 55, img: monoflow5, title: "Нежный персик", cost: 1590 },
+    { id: 111, img: strawflow1, title: "Коробочка с ягодами", cost: 1890 },
+    { id: 121, img: strawflow2, title: "Клубничный вкус", cost: 2600 },
   ];
 
   const product = products.find(
