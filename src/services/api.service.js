@@ -10,6 +10,7 @@ import monoflow3 from "../assets/monoflow3.jpg";
 import monoflow5 from "../assets/monoflow5.jpg";
 import strawflow1 from "../assets/strawflow1.jpg";
 import strawflow2 from "../assets/strawflow2.jpg";
+import { toProduct } from "../pages/products/Category";
 
 export const categories = {
   sb: "sbornyj-buket",
@@ -51,24 +52,30 @@ export const getProductsByCategory = (category) => {
   }
 };
 
-export const getProductById = (id) => {
-  const products = [
-    { id: 1, img: flow1, title: "Романтика сердца", cost: 1890 },
-    { id: 2, img: flow2, title: "Вишнёвый сад", cost: 2890 },
-    { id: 3, img: flow3, title: "Милашка", cost: 1590 },
-    { id: 4, img: flow4, title: "Закат", cost: 2090 },
-    { id: 5, img: flow5, title: "Счастье", cost: 3890 },
-    { id: 6, img: flow6, title: "Воспоминания о лете", cost: 1990 },
-    { id: 11, img: monoflow1, title: "Пушистое облако", cost: 2000 },
-    { id: 22, img: monoflow2, title: "Первая нежность", cost: 2890 },
-    { id: 33, img: monoflow3, title: "Яркий день", cost: 4590 },
-    { id: 55, img: monoflow5, title: "Нежный персик", cost: 1590 },
-    { id: 111, img: strawflow1, title: "Коробочка с ягодами", cost: 1890 },
-    { id: 121, img: strawflow2, title: "Клубничный вкус", cost: 2600 },
-  ];
+const products = [
+  { id: 1, img: flow1, title: "Романтика сердца", cost: 1890 },
+  { id: 2, img: flow2, title: "Вишнёвый сад", cost: 2890 },
+  { id: 3, img: flow3, title: "Милашка", cost: 1590 },
+  { id: 4, img: flow4, title: "Закат", cost: 2090 },
+  { id: 5, img: flow5, title: "Счастье", cost: 3890 },
+  { id: 6, img: flow6, title: "Воспоминания о лете", cost: 1990 },
+  { id: 11, img: monoflow1, title: "Пушистое облако", cost: 2000 },
+  { id: 22, img: monoflow2, title: "Первая нежность", cost: 2890 },
+  { id: 33, img: monoflow3, title: "Яркий день", cost: 4590 },
+  { id: 55, img: monoflow5, title: "Нежный персик", cost: 1590 },
+  { id: 111, img: strawflow1, title: "Коробочка с ягодами", cost: 1890 },
+  { id: 121, img: strawflow2, title: "Клубничный вкус", cost: 2600 },
+];
 
+export const searchProducts = (search) => {
+  return products.filter(
+    (product) => product.title.toUpperCase().search(search.toUpperCase()) > -1,
+  );
+};
+
+export const getProductById = (id) => {
   const product = products.find(
-    ({ id: productId }) => productId === Number(id)
+    ({ id: productId }) => productId === Number(id),
   );
   return product;
 };

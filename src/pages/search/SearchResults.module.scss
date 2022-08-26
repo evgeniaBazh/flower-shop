@@ -1,0 +1,15 @@
+.title {
+  font-size: 48px;
+}
+
+.productList {
+  &__text {
+    font-size: 28px;
+    margin: 20px 0;
+    cursor: pointer;
+
+    &:hover {
+      color: #e93564;
+    }
+  }
+}

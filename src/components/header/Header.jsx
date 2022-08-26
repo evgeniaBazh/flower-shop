@@ -2,11 +2,10 @@ import logo from '../../assets/logo.png'
 import telephone from '../../assets/telephone.svg'
 import heart from '../../assets/heart.svg'
 import cart from '../../assets/cart.svg'
-import search from '../../assets/search.svg'
 import classes from '../header/Header.module.scss'
 import {NavLink} from "react-router-dom"
 import { pathNames } from '../../App'
-import { useState } from 'react'
+import Search from './btn/Search'
 
 function Header() {
     const menu = [
@@ -15,14 +14,11 @@ function Header() {
         { id: 3, title: "Доставка", path: pathNames.delivery },
         { id: 4, title: "Отзывы", path: pathNames.feedback },
       ];
-
-    const [onSearchBtn, setOnSearchBtn] = useState(false);
     
     return ( 
         
         <header className={classes.header}>
                         <div className="wrapper styles">
-
                             <NavLink to={pathNames.main}>
                                 <img className={classes.logo} src={logo} alt="Логотип" />
                             </NavLink>
@@ -35,12 +31,7 @@ function Header() {
                                 </a>
                             </div>
                             <div className={classes.actions}>
-                                <NavLink to={pathNames.search}>
-                                <button onClick={() => setOnSearchBtn((item) => !item)} className={classes.action}>
-                                    <img className={classes.img} src={search} alt="Поиск по сайту" />
-                                </button>
-                                </NavLink>
-                                <input style={{ display: onSearchBtn ? "block" : "none" }} className={classes.inputSearch} placeholder='Поиск...' type="text" />
+                                <Search />
                                 <NavLink to={pathNames.favourites}>
                                     <img className={classes.img} src={heart} alt="Понравившиеся товары" />
                                 </NavLink>

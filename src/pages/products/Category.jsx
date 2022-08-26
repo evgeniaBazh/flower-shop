@@ -14,6 +14,10 @@ export const colors = {
     red: '#fa4141',
 }
 
+export const toProduct = (id, navigate) => {
+    navigate(`/product/${id}`)
+}
+
 function Category(props) {
     const [products, setProducts]= useState([]);
     const [title, setTitle] = useState('')
@@ -26,9 +30,6 @@ function Category(props) {
 
     const navigate = useNavigate();
     
-    const toProduct = (id) => {
-        navigate(`/product/${id}`)
-    }
 
     const [searchParams] = useSearchParams();
     useEffect(() => {
@@ -59,7 +60,7 @@ function Category(props) {
                 <div className={classes.block}>
                     <SortByProduct onChange={sortByPrice} value={optionKey} sortValue={sortValue} defaultValue='Сортировка'/>
                     {sortedByPrice.map(product => (
-                        <div onClick={() => {toProduct(product.id)}} key={product.id} className={classes.product}>
+                        <div onClick={() => {toProduct(product.id, navigate)}} key={product.id} className={classes.product}>
                             <div className={classes.scale}>  
                                 <img className={classes.img} src={product.img} alt="Фотография букета" />
                                 <BtnLike className={classes.btnLike} />

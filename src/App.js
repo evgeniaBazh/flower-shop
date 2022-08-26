@@ -7,10 +7,10 @@ import Filter from "./pages/filter/Filter";
 import Delivery from "./pages/delivery/Delivery";
 import Feedback from "./pages/feedback/Feedback";
 import Favourites from "./pages/favourites/Favourites";
-import Search from "./pages/search/Search";
 import Main from "./pages/main/Main";
 import Product from "./pages/product/Product";
 import Category from "./pages/products/Category";
+import SearchResults from "./pages/search/SearchResults";
 
 export const pathNames = {
   cart: "/cart",
@@ -33,7 +33,7 @@ function App() {
     { path: pathNames.delivery, el: <Delivery /> },
     { path: pathNames.feedback, el: <Feedback /> },
     { path: pathNames.favourites, el: <Favourites /> },
-    { path: pathNames.search, el: <Search /> },
+    { path: pathNames.search, el: <SearchResults /> },
     { path: pathNames.main, el: <Main /> },
     { path: pathNames.product, el: <Product /> },
     { path: pathNames.category, el: <Category /> },
