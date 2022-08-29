@@ -47,7 +47,7 @@ function Product(props) {
                     <img className={classes.img} src={product.img} alt="" />
                     <div className={classes.info}>
                         <h1 className={classes.title}>{product.title}</h1>
-                        <p className={classes.cost}>{product.cost}</p>
+                        <p className={classes.cost}>{product.cost} ₽</p>
                         <div className={classes.blockBtn}>
                             <InputNumber/>
                             <BtnAddProduct  />

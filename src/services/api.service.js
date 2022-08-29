@@ -10,7 +10,6 @@ import monoflow3 from "../assets/monoflow3.jpg";
 import monoflow5 from "../assets/monoflow5.jpg";
 import strawflow1 from "../assets/strawflow1.jpg";
 import strawflow2 from "../assets/strawflow2.jpg";
-import { toProduct } from "../pages/products/Category";
 
 export const categories = {
   sb: "sbornyj-buket",
@@ -65,6 +64,53 @@ const products = [
   { id: 55, img: monoflow5, title: "Нежный персик", cost: 1590 },
   { id: 111, img: strawflow1, title: "Коробочка с ягодами", cost: 1890 },
   { id: 121, img: strawflow2, title: "Клубничный вкус", cost: 2600 },
+];
+
+export const feedbacks = [
+  {
+    name: "Александр",
+    tel: 89888888888,
+    message:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam laoreet, lacus a hendrerit venenatis, purus metus vulputate orci, quis interdum dolor neque ac orci. Quisque interdum interdum magna id semper. ",
+  },
+  {
+    name: "Анастасия",
+    tel: 89888888888,
+    message:
+      "Lorem ipsum dolor sit ametpurus metus vulputate orci, quis interdum dolor neque ac orci. Quisque interdum interdum magna id semper. ",
+  },
+  {
+    name: "Людмила",
+    tel: 89888888888,
+    message: "Lorem ipsum dolor sit amet, magna id semper. ",
+  },
+  {
+    name: "Егор",
+    tel: 89888888888,
+    message: "super! :)",
+  },
+  {
+    name: "Александр",
+    tel: 89888888888,
+    message:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam laoreet, lacus a hendrerit venenatis, purus metus vulputate orci, quis interdum dolor neque ac orci. Quisque interdum interdum magna id semper. ",
+  },
+  {
+    name: "Анастасия",
+    tel: 89888888888,
+    message:
+      "Lorem ipsum dolor sit ametpurus metus vulputate orci, quis interdum dolor neque ac orci. Quisque interdum interdum magna id semper. ",
+  },
+  {
+    name: "Людмила",
+    tel: 89888888888,
+    message: "Lorem ipsum dolor sit amet, magna id semper. ",
+  },
+  {
+    name: "Егор",
+    tel: 89888888888,
+    message: "super! :)",
+  },
 ];
 
 export const searchProducts = (search) => {
