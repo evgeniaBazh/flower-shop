@@ -11,13 +11,19 @@ import monoflow5 from "../assets/monoflow5.jpg";
 import strawflow1 from "../assets/strawflow1.jpg";
 import strawflow2 from "../assets/strawflow2.jpg";
 
+const fakeTimeout = () =>
+  new Promise((resolve) => {
+    setTimeout(() => resolve(), 800);
+  });
+
 export const categories = {
   sb: "sbornyj-buket",
   mb: "monobukety",
   kk: "kompozicii-s-buketom",
 };
 
-export const getProductsByCategory = (category) => {
+export const getProductsByCategory = async (category) => {
+  await fakeTimeout();
   if (category === categories.sb) {
     return {
       title: "Сборные букеты",
@@ -93,7 +99,7 @@ export const feedbacks = [
     name: "Александр",
     tel: 89888888888,
     message:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam laoreet, lacus a hendrerit venenatis, purus metus vulputate orci, quis interdum dolor neque ac orci. Quisque interdum interdum magna id semper. ",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam laoreet, lacus a hendrerit venenatis, purus metus vulputate orci, quis interdum dolor neque ac orci. Quisque interdum interdum magna id semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam laoreet, lacus a hendrerit venenatis, purus metus vulputate orci, quis interdum dolor neque ac orci. Quisque interdum interdum magna id semper.",
   },
   {
     name: "Анастасия",
@@ -113,13 +119,25 @@ export const feedbacks = [
   },
 ];
 
-export const searchProducts = (search) => {
+export const getFeedback = async () => {
+  await fakeTimeout();
+  return [...feedbacks];
+};
+
+export const addFeedback = async (obj) => {
+  await fakeTimeout();
+  feedbacks.push(obj);
+};
+
+export const searchProducts = async (search) => {
+  await fakeTimeout();
   return products.filter(
     (product) => product.title.toUpperCase().search(search.toUpperCase()) > -1,
   );
 };
 
-export const getProductById = (id) => {
+export const getProductById = async (id) => {
+  await fakeTimeout();
   const product = products.find(
     ({ id: productId }) => productId === Number(id),
   );

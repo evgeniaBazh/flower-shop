@@ -1,7 +1,8 @@
-import { useRef } from 'react';
-import { feedbacks } from '../../services/api.service';
+import { useEffect, useRef, useState } from 'react';
+import { getFeedback } from '../../services/api.service';
 import classes from '../feedback/Feedback.module.scss'
 import Form from "./form/Form";
+import Message from './message/Message';
 
 function Feedback() {
     const formRef = useRef();
@@ -10,24 +11,33 @@ function Feedback() {
             behavior: 'smooth', block:'end'
         })
     }
+
+    const [feedbacks, setFeedbacks] = useState([]);
+    const getData = async () => {
+        const newFeedbacks = await getFeedback();
+        setFeedbacks(newFeedbacks);
+    }
+    useEffect(() => {
+        getData();
+    }, [])
+
     return ( 
         <div className="wrapper">
+            <div className={classes.wrap}>
             <h1>Отзывы</h1>
-            <div>
-                <button onClick={() => clickHandler()}>Оставить отзыв</button>
+            <div className={classes.wrapBtn}>
+                <button className={classes.btnAdd} onClick={() => clickHandler()}>Оставить отзыв</button>
             </div>
             <div className={classes.container}>
                 {feedbacks.map((feedback, index) => {
                     return (
-                        <div key={index} className={classes.feedback}>
-                            <p>{feedback.name}</p>
-                            <p>{feedback.message}</p>
-                        </div>
+                        <Message key={index} feedback={feedback}/>
                     )
                 })}
             </div>
             <div ref={formRef}>
-                <Form  />
+                <Form refreshFeedbacks={getData} />
+            </div>
             </div>
         </div>
     );

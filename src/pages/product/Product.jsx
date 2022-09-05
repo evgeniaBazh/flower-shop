@@ -37,7 +37,10 @@ function Product(props) {
         },
       ];
     useEffect(() => {
-        setProduct(getProductById(id));
+        const getData = async () => {
+            setProduct(await getProductById(id));
+        }
+        getData();
     },[])
     
         if(product) {

@@ -25,18 +25,19 @@ function Category(props) {
     const sortValue = [
     {title: 'Цены: по возрастанию', key: 'increasing'},
     {title: 'Цены: по убыванию', key: 'decreasing'},]
-    // {title: 'По популярности'},
-    // {title: 'Более новые букеты'},]
 
     const navigate = useNavigate();
     
 
     const [searchParams] = useSearchParams();
     useEffect(() => {
-        const data = getProductsByCategory(searchParams.get('name'));
-        setProducts(data.products);
-        setSortedByPrice(data.products);
-        setTitle(data.title);
+        const getData = async () => {
+            const data = await getProductsByCategory(searchParams.get('name'));
+            setProducts(data.products);
+            setSortedByPrice(data.products);
+            setTitle(data.title);
+        }
+        getData();
     }, [])
 
     
