@@ -10,6 +10,9 @@ import monoflow3 from "../assets/monoflow3.jpg";
 import monoflow5 from "../assets/monoflow5.jpg";
 import strawflow1 from "../assets/strawflow1.jpg";
 import strawflow2 from "../assets/strawflow2.jpg";
+import carousel1 from "../assets/buket14.jpg";
+import carousel2 from "../assets/buketi-i-fruktov.jpg";
+import carousel3 from "../assets/rose.jpg";
 
 const fakeTimeout = () =>
   new Promise((resolve) => {
@@ -116,6 +119,24 @@ export const feedbacks = [
     name: "Егор",
     tel: 89888888888,
     message: "super! :)",
+  },
+];
+
+export const carousel = [
+  {
+    img: carousel1,
+  },
+  {
+    img: carousel2,
+  },
+  {
+    img: carousel3,
+  },
+  {
+    img: carousel2,
+  },
+  {
+    img: carousel3,
   },
 ];
 

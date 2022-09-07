@@ -1,5 +1,11 @@
+import Carousel from "./carousel/Carousel";
+
 function Main() {
-    return ( <h1>main</h1> );
+    return ( 
+        <div>
+            <Carousel/>
+        </div>
+    );
 }
 
 export default Main;
