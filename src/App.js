@@ -11,6 +11,7 @@ import Main from "./pages/main/Main";
 import Product from "./pages/product/Product";
 import Category from "./pages/products/Category";
 import SearchResults from "./pages/search/SearchResults";
+import Footer from "./components/footer/Footer";
 
 export const pathNames = {
   cart: "/cart",
@@ -40,7 +41,7 @@ function App() {
   ];
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className='App'>
         <Header></Header>
       </div>
       <Routes>
@@ -48,6 +49,7 @@ function App() {
           <Route key={item.path} path={item.path} element={item.el}></Route>
         ))}
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

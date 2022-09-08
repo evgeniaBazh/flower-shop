@@ -1,0 +1,35 @@
+.footer {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  background-color: #f8f8f8;
+
+  &__logo {
+    max-width: 100px;
+  }
+
+  &__description,
+  &__sections,
+  &__userAccount {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    padding: 10px 16px;
+  }
+
+  &__sections a,
+  &__userAccount a {
+    color: rgb(85, 120, 218);
+    margin: 5px 0;
+    transition-property: all;
+    transition: 0.9s;
+    cursor: pointer;
+
+    &:hover {
+      padding-left: 6px;
+      transition: 0.9s;
+    }
+  }
+}
