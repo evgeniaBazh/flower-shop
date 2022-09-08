@@ -1,3 +1,4 @@
+import Catalog from "../catalog/Catalog";
 import Advantages from "./advantages/Advantages";
 import Carousel from "./carousel/Carousel";
 
@@ -6,6 +7,7 @@ function Main() {
         <div>
             <Carousel/>
             <Advantages/>
+            <Catalog/>
         </div>
     );
 }

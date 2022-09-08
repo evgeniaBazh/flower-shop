@@ -10,7 +10,7 @@ import { categories } from "../../services/api.service";
 function Catalog(props) {
     return ( 
     <div className="wrapper">
-        <div className="wrap">
+        <div className={classes.wrap}>
             <h1>Каталог</h1>
             <div className={classes.block}>
                 <NavLink  to={`${pathNames.category}/?name=${categories.mb}`}>
