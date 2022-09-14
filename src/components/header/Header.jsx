@@ -10,7 +10,6 @@ import Search from './btn/Search'
 function Header() {
     const menu = [
         { id: 1, title: "Каталог", path: pathNames.catalog },
-        { id: 2, title: "Подобрать", path: pathNames.filter },
         { id: 3, title: "Доставка", path: pathNames.delivery },
         { id: 4, title: "Отзывы", path: pathNames.feedback },
       ];

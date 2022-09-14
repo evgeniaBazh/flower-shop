@@ -22,22 +22,24 @@ function Feedback() {
     }, [])
 
     return ( 
-        <div className="wrapper">
-            <div className={classes.wrap}>
-            <h1>Отзывы</h1>
-            <div className={classes.wrapBtn}>
-                <button className={classes.btnAdd} onClick={() => clickHandler()}>Оставить отзыв</button>
+        <div>
+            <div className="wrapper">
+                <div className={classes.wrap}>
+                    <h1>Отзывы</h1>
+                    <div className={classes.wrapBtn}>
+                        <button className={classes.btnAdd} onClick={() => clickHandler()}>Оставить отзыв</button>
+                    </div>
+                    <div className={classes.container}>
+                        {feedbacks.map((feedback, index) => {
+                            return (
+                                <Message key={index} feedback={feedback}/>
+                            )
+                        })}
+                    </div>
+                </div>
             </div>
-            <div className={classes.container}>
-                {feedbacks.map((feedback, index) => {
-                    return (
-                        <Message key={index} feedback={feedback}/>
-                    )
-                })}
-            </div>
-            <div ref={formRef}>
+            <div ref={formRef} className={classes.wrapForm}>
                 <Form refreshFeedbacks={getData} />
-            </div>
             </div>
         </div>
     );
