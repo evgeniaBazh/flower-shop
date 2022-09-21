@@ -14,6 +14,12 @@ import carousel1 from "../assets/buket14.jpg";
 import carousel2 from "../assets/buketi-i-fruktov.jpg";
 import carousel3 from "../assets/rose.jpg";
 
+const apiUrl = "http://localhost:8000";
+const routes = {
+  feedbacks: "feedbacks",
+  products: "products",
+};
+
 const fakeTimeout = () =>
   new Promise((resolve) => {
     setTimeout(() => resolve(), 800);
@@ -75,53 +81,6 @@ const products = [
   { id: 121, img: strawflow2, title: "Клубничный вкус", cost: 2600 },
 ];
 
-export const feedbacks = [
-  {
-    name: "Александр",
-    tel: 89888888888,
-    message:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam laoreet, lacus a hendrerit venenatis, purus metus vulputate orci, quis interdum dolor neque ac orci. Quisque interdum interdum magna id semper. ",
-  },
-  {
-    name: "Анастасия",
-    tel: 89888888888,
-    message:
-      "Lorem ipsum dolor sit ametpurus metus vulputate orci, quis interdum dolor neque ac orci. Quisque interdum interdum magna id semper. ",
-  },
-  {
-    name: "Людмила",
-    tel: 89888888888,
-    message: "Lorem ipsum dolor sit amet, magna id semper. ",
-  },
-  {
-    name: "Егор",
-    tel: 89888888888,
-    message: "super! :)",
-  },
-  {
-    name: "Александр",
-    tel: 89888888888,
-    message:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam laoreet, lacus a hendrerit venenatis, purus metus vulputate orci, quis interdum dolor neque ac orci. Quisque interdum interdum magna id semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam laoreet, lacus a hendrerit venenatis, purus metus vulputate orci, quis interdum dolor neque ac orci. Quisque interdum interdum magna id semper.",
-  },
-  {
-    name: "Анастасия",
-    tel: 89888888888,
-    message:
-      "Lorem ipsum dolor sit ametpurus metus vulputate orci, quis interdum dolor neque ac orci. Quisque interdum interdum magna id semper. ",
-  },
-  {
-    name: "Людмила",
-    tel: 89888888888,
-    message: "Lorem ipsum dolor sit amet, magna id semper. ",
-  },
-  {
-    name: "Егор",
-    tel: 89888888888,
-    message: "super! :)",
-  },
-];
-
 export const carousel = [
   {
     img: carousel1,
@@ -141,13 +100,19 @@ export const carousel = [
 ];
 
 export const getFeedback = async () => {
-  await fakeTimeout();
-  return [...feedbacks];
+  const res = await fetch(`${apiUrl}/${routes.feedbacks}`);
+  const data = await res.json();
+  return data;
 };
 
-export const addFeedback = async (obj) => {
-  await fakeTimeout();
-  feedbacks.push(obj);
+export const addFeedback = async (feedback) => {
+  let response = await fetch(`${apiUrl}/${routes.feedbacks}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify(feedback),
+  });
 };
 
 export const searchProducts = async (search) => {
