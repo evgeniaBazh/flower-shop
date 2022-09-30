@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import ExpansionItem from '../../components/expansion-item/ExpansionItem';
 import Questions from '../../components/expansion-item/questions/Questions';
 import Preloader from '../../components/Preloader';
 import { getProductById } from '../../services/api.service';

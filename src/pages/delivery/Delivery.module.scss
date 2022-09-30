@@ -1,0 +1,22 @@
+.block {
+    display: block;
+}
+
+.img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+    margin: auto;
+    position: relative;
+}
+
+.header {
+    position: absolute;
+    top: 40%;
+    left: 32.5%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    font-size: 32px;
+}

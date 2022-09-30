@@ -27,6 +27,7 @@ function Questions() {
       ];
     return ( 
         <div className="wrapper">
+          <p>Ответы на часто задаваемые вопросы</p>
             {accordionData.map(({ title, content }) => (
                 <ExpansionItem title={title} key={title} content={content} />
             ))}
