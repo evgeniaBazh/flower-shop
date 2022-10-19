@@ -14,10 +14,17 @@ import carousel1 from "../assets/buket14.jpg";
 import carousel2 from "../assets/buketi-i-fruktov.jpg";
 import carousel3 from "../assets/rose.jpg";
 
-const apiUrl = "http://localhost:8000";
+const apiUrl = "http://localhost:8000/api";
 const routes = {
   feedbacks: "feedbacks",
   products: "products",
+};
+
+const post = async (route, body) => {
+  return await fetch(`${apiUrl}/${route}`, {
+    method: "POST",
+    body,
+  });
 };
 
 const fakeTimeout = () =>
@@ -31,22 +38,30 @@ export const categories = {
   kk: "kompozicii-s-buketom",
 };
 
+export function getCategoryName(category) {
+  switch (category) {
+    case categories.sb:
+      return "Сборный букет";
+    case categories.mb:
+      return "Монобукет";
+    case categories.kk:
+      return "Композиция с букетом";
+  }
+}
+
 export const getProductsByCategory = async (category) => {
   await fetch(`${apiUrl}/product-by-category/category=${category}`);
   if (category === categories.sb) {
     return {
       title: "Сборные букеты",
-     
     };
   } else if (category === categories.mb) {
     return {
       title: "Монобукеты",
-      
     };
   } else if (category === categories.kk) {
     return {
       title: "Композиции с клубникой",
-     
     };
   }
 };
@@ -91,13 +106,7 @@ export const getFeedback = async () => {
 };
 
 export const addFeedback = async (feedback) => {
-  let response = await fetch(`${apiUrl}/${routes.feedbacks}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json;charset=utf-8",
-    },
-    body: JSON.stringify(feedback),
-  });
+  return await post(routes.feedbacks, feedback);
 };
 
 export const searchProducts = async (search) => {
@@ -113,4 +122,8 @@ export const getProductById = async (id) => {
     ({ id: productId }) => productId === Number(id),
   );
   return product;
+};
+
+export const createProduct = async (formData) => {
+  post(routes.products, formData);
 };

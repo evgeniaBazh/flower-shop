@@ -11,7 +11,7 @@ import Product from "./pages/product/Product";
 import Category from "./pages/products/Category";
 import SearchResults from "./pages/search/SearchResults";
 import Footer from "./components/footer/Footer";
-import CardProduct from "./admin/cardproduct/CardProduct";
+import CreateProduct from "./admin/cardproduct/CardProduct";
 
 export const pathNames = {
   cart: "/cart",
@@ -23,7 +23,7 @@ export const pathNames = {
   main: "/",
   product: "/product/:id",
   category: "/category",
-  cardProduct: "/card-product"
+  createProduct: "/create-product",
 };
 
 function App() {
@@ -37,7 +37,7 @@ function App() {
     { path: pathNames.main, el: <Main /> },
     { path: pathNames.product, el: <Product /> },
     { path: pathNames.category, el: <Category /> },
-    { path: pathNames.cardProduct, el: <CardProduct/> },
+    { path: pathNames.createProduct, el: <CreateProduct /> },
   ];
   return (
     <BrowserRouter>
