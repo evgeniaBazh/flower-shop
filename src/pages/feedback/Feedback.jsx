@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { getFeedback } from '../../services/api.service';
+import Btn from '../../components/btn/Btn';
+import { getFeedbacks } from '../../services/api.service';
 import classes from '../feedback/Feedback.module.scss'
 import Form from "./form/Form";
 import Message from './message/Message';
@@ -14,7 +15,7 @@ function Feedback() {
 
     const [feedbacks, setFeedbacks] = useState([]);
     const getData = async () => {
-        const newFeedbacks = await getFeedback();
+        const newFeedbacks = await getFeedbacks();
         setFeedbacks(newFeedbacks);
     }
     useEffect(() => {
@@ -27,7 +28,7 @@ function Feedback() {
                 <div className={classes.wrap}>
                     <h1>Отзывы</h1>
                     <div className={classes.wrapBtn}>
-                        <button className={classes.btnAdd} onClick={() => clickHandler()}>Оставить отзыв</button>
+                        <Btn onClick={() => clickHandler()}>Оставить отзыв</Btn>
                     </div>
                     <div className={classes.container}>
                         {feedbacks.map((feedback, index) => {

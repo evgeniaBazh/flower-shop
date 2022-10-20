@@ -99,7 +99,7 @@ export const carousel = [
   },
 ];
 
-export const getFeedback = async () => {
+export const getFeedbacks = async () => {
   const res = await fetch(`${apiUrl}/${routes.feedbacks}`);
   const data = await res.json();
   return data;

@@ -1,32 +1,58 @@
 import { useState } from "react";
-import { addFeedback } from "../../../services/api.service";
 import Input from '../../../components/input/Input'
 import Btn from "../../../components/btn/Btn";
+import { addFeedback } from "../../../services/api.service";
 
-function Form(props) {
-    const [formData, setFormData] = useState({
-        name: '',
-        message: '',
+function Form({refreshFeedbacks}) {
+    const defaultForm = {
+        userName: '',
         tel: '',
-    })
-   
+        message: '', 
+    };
+
+    const [formValue, setFormData] = useState(defaultForm);
+
+    const formKeys = {};
+    Object.keys(defaultForm).forEach(key => {
+        formKeys[key] = key;
+    });
+
+    async function onSubmit(e) {
+        e.preventDefault()
+        const formData = new FormData();
+        Object.keys(defaultForm).forEach(key => {
+            formData.append(key, formValue[key])
+        });
+        
+       
+        try {
+            await addFeedback(formData)
+            refreshFeedbacks();
+        } catch(e) {
+            alert(e)
+        }
+
+    }
+    
+    function onChange(e, key) {
+        setFormData({
+            ...formValue,
+            [key]: e.target.value,
+        })
+    }
+
     const handleChange = (event, key) => {
-        const copy = {...formData};
+        const copy = {...formValue};
         copy[key] = (event.target.value);
         setFormData(copy);
     };
 
-    const handleSubmit = () => {
-        addFeedback(formData);
-        props.refreshFeedbacks();
-    }
-
     return ( 
-        <form className="flex flex-col">
-            <Input onChange={(event) => handleChange(event, 'name')} textarea={false} type="text" name="username" value={formData.name}>Имя</Input>
-            <Input onChange={(event) => handleChange(event, 'tel')} textarea={false} type="text" name="username" value={formData.tel}>Телефон</Input>
-            <Input onChange={(event) => handleChange(event, 'message')} textarea={true} type="text" name="message" value={formData.message}>Сообщение</Input>
-            <Btn onClick={() => handleSubmit()}>Отправить</Btn>
+        <form className="flex flex-col" onSubmit={onSubmit}>
+            <Input onInput={(e) => onChange(e, formKeys.userName)} onChange={(event) => handleChange(event, 'userName')} textarea={false} type="text" name="userName" value={formValue.name}>Имя</Input>
+            <Input onInput={(e) => onChange(e, formKeys.tel)} onChange={(event) => handleChange(event, 'tel')} textarea={false} type="text" name="tel" value={formValue.tel}>Телефон</Input>
+            <Input onInput={(e) => onChange(e, formKeys.message)} onChange={(event) => handleChange(event, 'message')} textarea={true} type="text" name="message" value={formValue.message}>Сообщение</Input>
+            <Btn type='submit'>Отправить</Btn>
         </form>
      );
 }
