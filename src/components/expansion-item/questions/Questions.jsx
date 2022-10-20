@@ -27,10 +27,12 @@ function Questions() {
       ];
     return ( 
         <div className="wrapper">
-          <p>Ответы на часто задаваемые вопросы</p>
-            {accordionData.map(({ title, content }) => (
-                <ExpansionItem title={title} key={title} content={content} />
-            ))}
+          <div className="p-4 my-10">
+            <p>Ответы на часто задаваемые вопросы</p>
+              {accordionData.map(({ title, content }) => (
+                  <ExpansionItem title={title} key={title} content={content} />
+              ))}
+          </div>
         </div>
     );
 }

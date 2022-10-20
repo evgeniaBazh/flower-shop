@@ -26,10 +26,8 @@ function Feedback() {
         <div className='bg-slate-100'>
             <div className="wrapper">
                 <div className={classes.wrap}>
-                    <h1>Отзывы</h1>
-                    <div className={classes.wrapBtn}>
-                        <Btn onClick={() => clickHandler()}>Оставить отзыв</Btn>
-                    </div>
+                    <h1 className='text-6xl	text-slate-700	p-10'>Отзывы</h1>
+                        <Btn onClick={() => clickHandler()} >Оставить отзыв</Btn>
                     <div className={classes.container}>
                         {feedbacks.map((feedback, index) => {
                             return (
