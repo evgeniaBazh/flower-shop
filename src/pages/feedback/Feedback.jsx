@@ -23,7 +23,7 @@ function Feedback() {
     }, [])
 
     return ( 
-        <div>
+        <div className='bg-slate-100'>
             <div className="wrapper">
                 <div className={classes.wrap}>
                     <h1>Отзывы</h1>
