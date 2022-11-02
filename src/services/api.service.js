@@ -21,10 +21,16 @@ const routes = {
 };
 
 const post = async (route, body) => {
-  return await fetch(`${apiUrl}/${route}`, {
+  const response = await fetch(`${apiUrl}/${route}`, {
     method: "POST",
     body,
   });
+  return await response.json();
+};
+
+const get = async (route) => {
+  const response = await fetch(`${apiUrl}/${route}`);
+  return await response.json();
 };
 
 const fakeTimeout = () =>
@@ -50,18 +56,21 @@ export function getCategoryName(category) {
 }
 
 export const getProductsByCategory = async (category) => {
-  await fetch(`${apiUrl}/product-by-category/category=${category}`);
+  const data = await get(`${routes.products}/?name=${category}`);
   if (category === categories.sb) {
     return {
       title: "Сборные букеты",
+      products: data,
     };
   } else if (category === categories.mb) {
     return {
       title: "Монобукеты",
+      products: data,
     };
   } else if (category === categories.kk) {
     return {
       title: "Композиции с клубникой",
+      products: data,
     };
   }
 };
@@ -100,9 +109,7 @@ export const carousel = [
 ];
 
 export const getFeedbacks = async () => {
-  const res = await fetch(`${apiUrl}/${routes.feedbacks}`);
-  const data = await res.json();
-  return data;
+  return await get(routes.feedbacks);
 };
 
 export const addFeedback = async (feedback) => {
