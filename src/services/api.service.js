@@ -14,7 +14,8 @@ import carousel1 from "../assets/buket14.jpg";
 import carousel2 from "../assets/buketi-i-fruktov.jpg";
 import carousel3 from "../assets/rose.jpg";
 
-const apiUrl = "http://localhost:8000/api";
+const serverUrl = "http://localhost:8000";
+const apiUrl = `${serverUrl}/api`;
 const routes = {
   feedbacks: "feedbacks",
   products: "products",
@@ -55,22 +56,28 @@ export function getCategoryName(category) {
   }
 }
 
+const mapProduct = (product) => ({
+  ...product,
+  img: `${serverUrl}/${product.img}`,
+});
+
 export const getProductsByCategory = async (category) => {
   const data = await get(`${routes.products}/?name=${category}`);
+  const products = data.map(mapProduct);
   if (category === categories.sb) {
     return {
       title: "Сборные букеты",
-      products: data,
+      products,
     };
   } else if (category === categories.mb) {
     return {
       title: "Монобукеты",
-      products: data,
+      products,
     };
   } else if (category === categories.kk) {
     return {
       title: "Композиции с клубникой",
-      products: data,
+      products,
     };
   }
 };
@@ -124,11 +131,8 @@ export const searchProducts = async (search) => {
 };
 
 export const getProductById = async (id) => {
-  await fakeTimeout();
-  const product = products.find(
-    ({ id: productId }) => productId === Number(id),
-  );
-  return product;
+  const product = await get(`${routes.products}/${id}`);
+  return mapProduct(product);
 };
 
 export const createProduct = async (formData) => {

@@ -61,7 +61,7 @@ function Category(props) {
                 <div className={classes.block}>
                     <SortByProduct onChange={sortByPrice} value={optionKey} sortValue={sortValue} defaultValue='Сортировка'/>
                     {sortedByPrice.map(product => (
-                        <div onClick={() => {toProduct(product.id, navigate)}} key={product.id} className={classes.product}>
+                        <div onClick={() => {toProduct(product._id, navigate)}} key={product.id} className={classes.product}>
                             <div className={classes.scale}>  
                                 <img className={classes.img} src={product.img} alt="Фотография букета" />
                                 <BtnLike className={classes.btnLike} />
